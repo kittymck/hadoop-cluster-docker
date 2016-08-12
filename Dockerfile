@@ -1,8 +1,12 @@
-FROM ubuntu:14.04
+# Author: Sarah McKechnie
+# Date:   2016, July
+#
+# Creates multi node hadoop cluster on Docker
 
-MAINTAINER KiwenLau <kiwenlau@gmail.com>
+FROM resin/rpi-raspbian:jessie
+MAINTAINER Sarah McKechnie <sarah.a.mckechnie@gmail.com>
 
-WORKDIR /root
+USER root
 
 # install openssh-server, openjdk and wget
 RUN apt-get update && apt-get install -y openssh-server openjdk-7-jdk wget
@@ -14,7 +18,7 @@ RUN wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.2/hado
     rm hadoop-2.7.2.tar.gz
 
 # set environment variable
-ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 
+ENV JAVA_HOME=/usr
 ENV HADOOP_HOME=/usr/local/hadoop 
 ENV PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin 
 
