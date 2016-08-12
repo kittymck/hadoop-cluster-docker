@@ -23,6 +23,6 @@ echo ""
 echo -e "\nbuild docker hadoop image\n"
 
 # rebuild kiwenlau/hadoop image
-sudo docker build -t kittymck/rpi-docker-hadoop .
+sudo docker build -t kittymck/rpi-hadoop .
 
 echo ""
